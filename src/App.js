@@ -36,23 +36,31 @@ class Counter extends Component {
   };
 
   tambah = () => {
+    const { angka } = this.state
+
     this.setState({
-      angka: this.state.angka + 1
+      angka: angka + 1
     });
   };
 
   minus = () => {
-    if (this.state.angka == 0) {
+    const { angka } = this.state
+    
+    if (angka < 1) {
       return alert('Jangan Minus woy!');
     }
+    
     this.setState({
-      angka: this.state.angka - 1
+      angka: angka - 1
     });
   };
+
   render() {
+    const { angka } = this.state
+
     return (
       <div>
-        <h2 style={{}}>{this.state.angka}</h2>
+        <h2 style={{}}>{angka}</h2>
         <button onClick={this.tambah}>Tambah</button>
         <button onClick={this.minus}>Kurang</button>
       </div>
